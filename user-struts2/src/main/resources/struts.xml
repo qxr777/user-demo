@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<!-- 指定Struts 2配置文件的根元素 -->
+<struts>
+	<!-- 指定全局国际化资源文件 -->
+	<constant name="struts.custom.i18n.resources" value="user"/>
+	<!-- 指定国际化编码所使用的字符集 -->	
+	<constant name="struts.i18n.encoding" value="utf-8"/>
+	<!-- 设置是否使用Struts2的开发模式 -->
+	<constant name="struts.devMode" value="false" />	
+	<!-- 所有的Action定义都应该放在package下 -->
+	<package name="whut" extends="struts-default">
+        
+		<interceptors>
+			<interceptor name="authority" class="edu.whut.web.interceptor.AuthorityInterceptor"/>
+			<interceptor-stack name="mydefault">
+			    <interceptor-ref name="defaultStack"></interceptor-ref>
+			    <interceptor-ref name="authority"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>	  
+		<!-- <default-interceptor-ref name="mydefault"></default-interceptor-ref> -->  
+	    <global-results>
+	        <result name="success" type="redirectAction">showAllUser</result>
+	        <result name="error">/WEB-INF/content/error.jsp</result>
+	        <result name="login">/WEB-INF/content/loginPage.jsp</result>
+	    </global-results>
+	    <global-exception-mappings>
+	        <exception-mapping exception="edu.whut.web.exception.BaseException" result="error"/>
+	    </global-exception-mappings>
+		<action name="login" class="edu.whut.web.action.LoginAction">
+			<!-- 定义三个逻辑视图和物理资源之间的映射 -->		
+			<result name="input">/WEB-INF/content/loginPage.jsp</result>
+			<result name="error">/WEB-INF/content/loginPage.jsp</result>		
+		</action>
+		<action name="showAllUser" class="edu.whut.web.action.UserAction" method="showAllUser">
+			<!-- 定义三个逻辑视图和物理资源之间的映射 -->		
+			<result name="input">/WEB-INF/content/loginPage.jsp</result>	
+			<result name="success">/WEB-INF/content/main.jsp</result>	
+			<interceptor-ref name="mydefault"/>	
+		</action>	
+		<action name="registerUser" class="edu.whut.web.action.UserAction" method="registerUser">
+			<!-- 定义三个逻辑视图和物理资源之间的映射 -->		
+			<result name="input">/WEB-INF/content/register.jsp</result>	
+		</action>					
+		<action name="*User" class="edu.whut.web.action.UserAction" method="{1}User">
+			<!-- 定义三个逻辑视图和物理资源之间的映射 -->		
+			<result name="input">/WEB-INF/content/user.jsp</result>	
+			<interceptor-ref name="mydefault"/>			
+		</action>	
+		<action name="*Org" class="edu.whut.web.action.OrganizationAction" method="{1}Organization">
+			<!-- 定义三个逻辑视图和物理资源之间的映射 -->		
+			<result name="input">/WEB-INF/content/organization.jsp</result>	
+			<interceptor-ref name="mydefault"/>		
+		</action>				
+		<action name="imgcode" class="edu.whut.web.action.RandomCodeAction">
+            <result type="stream">  
+               <param name="contentType">image/jpeg</param>  
+               <param name="inputName">inputStream</param>  
+            </result> 
+		</action>	
+		<action name="*">
+		    <result>/WEB-INF/content/{1}.jsp</result>
+		</action>	
+	</package>
+</struts>

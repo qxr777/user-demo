@@ -1,0 +1,42 @@
+version: '2'
+services:
+  user-demo-mysql:
+    extends:
+      file: mysql.yml
+      service: user-demo-mysql
+    networks:
+      user-demo-net:
+        aliases:
+          - mysql
+  user-demo-redis:
+    extends:
+      file: redis.yml
+      service: user-demo-redis
+    networks:
+      user-demo-net:
+        aliases:
+          - redis          
+  user-demo-zookeeper:
+    extends:
+      file: zookeeper.yml
+      service: user-demo-zookeeper
+    networks:
+      user-demo-net:
+        aliases:
+          - zookeeper
+  user-demo-dubbo:
+    image: xinmeng/dubbo-admin:2.0.0
+    depends_on:
+      - user-demo-zookeeper
+    environment:
+      - ZOOKEEPER=zookeeper:2181
+      - ROOT_PASS=root
+      - GUEST_PASS=guest
+    ports:
+      - 7001:7001
+    networks:
+      user-demo-net:
+        aliases:
+          - dubbo
+networks:
+    user-demo-net:

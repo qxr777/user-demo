@@ -1,0 +1,24 @@
+version: '2'
+services:
+  user-demo-zookeeper:
+    extends:
+      file: zookeeper.yml
+      service: user-demo-zookeeper
+    networks:
+      user-demo-net:
+        aliases:
+          - zookeeper
+  user-demo-dubbo:
+    image: xinmeng/dubbo-admin:2.0.0
+    environment:
+      - ZOOKEEPER=zookeeper:2181
+      - ROOT_PASS=root
+      - GUEST_PASS=guest
+    ports:
+      - 7001:7001
+    networks:
+      user-demo-net:
+        aliases:
+          - dubbo         
+networks:
+    user-demo-net:

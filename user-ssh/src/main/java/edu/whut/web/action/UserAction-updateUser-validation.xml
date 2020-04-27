@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 指定校验配置文件的DTD信息 -->
+<!DOCTYPE validators PUBLIC 
+	"-//OpenSymphony Group//XWork Validator 1.0.3//EN"
+	"http://www.opensymphony.com/xwork/xwork-validator-1.0.3.dtd">
+<!-- 校验文件的根元素 -->
+<validators>
+    <!-- 校验Action的name属性 -->
+	<field name="name">
+		<!-- 指定name属性必须满足必填规则 -->
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>必须输入名字</message>
+		</field-validator>
+		<!-- 指定name属性必须匹配正则表达式 -->
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[(\w{4,25})]]></param>
+			<message>您输入的用户名只能是字母和数字
+				，且长度必须在4到25之间</message>
+		</field-validator>
+	</field>
+	<!-- 校验Action的email属性 -->
+    <field name="email" >
+        <!-- 指定email属性必须满足匹配指定的正则表达式 -->
+        <field-validator type="email" >
+            <message>电子邮件地址无效
+            </message>
+        </field-validator>
+    </field>		
+</validators>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 2010-11-9 18:15:04 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping package="edu.whut.web.domain">
+	<class name="User" table="user" lazy="false">
+		<id name="id" column="USER_ID">
+			<generator class="native" />
+		</id>
+		<property name="name" column="USER_NAME"/>
+		<property name="password" column="USER_PASSWORD"/>
+		<property name="email" column="USER_EMAIL"/>
+		<many-to-one name="organization" column="USER_ORGANIZATION_ID"></many-to-one>
+		<set name="roles" lazy="false" table="user_role" cascade="persist">
+		    <key column = "USER_ROLE_USER_ID"/>
+		    <many-to-many class="Role" column="USER_ROLE_ROLE_ID"/>
+		</set>		
+	</class>
+</hibernate-mapping>

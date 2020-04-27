@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="edu.whut.web.domain">
+	<class name="Role" table="role" lazy="false">
+		<id name="id" column="ROLE_ID">
+			<generator class="native" />
+		</id>
+		<property name="name" column="ROLE_NAME"/>
+		<property name="description" column="ROLE_DESCRIPTION"/>
+		<set name="users" lazy="false" table="user_role" inverse="true">
+		    <key column = "USER_ROLE_ROLE_ID"/>
+		    <many-to-many class="User" column="USER_ROLE_USER_ID"/>
+		</set>
+	</class>
+</hibernate-mapping>

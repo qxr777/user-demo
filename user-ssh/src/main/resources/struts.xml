@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<!-- 指定Struts 2配置文件的根元素 -->
+<struts>
+	<!-- 指定全局国际化资源文件 -->
+	<constant name="struts.custom.i18n.resources" value="user"/>
+	<!-- 指定国际化编码所使用的字符集 -->	
+	<constant name="struts.i18n.encoding" value="utf-8"/>
+	<!-- 所有的Action定义都应该放在package下 -->
+	<package name="whut" extends="struts-default">
+        <result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+        </result-types>
+		<interceptors>
+			<interceptor name="authority" class="edu.whut.web.interceptor.AuthorityInterceptor"/>
+			<interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/>
+			<interceptor-stack name="mydefault">
+			    <interceptor-ref name="defaultStack"></interceptor-ref>
+			   <!--  <interceptor-ref name="authority"></interceptor-ref> -->
+			    <interceptor-ref name="json"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>	  
+		<!-- <default-interceptor-ref name="mydefault"></default-interceptor-ref> -->  
+	    <global-results>
+	        <result name="success" type="redirectAction">showAllUser</result>
+	        <result name="error">/WEB-INF/content/error.jsp</result>
+	        <result name="login">/WEB-INF/content/loginPage.jsp</result>
+			<result type="json" name="message">
+				<param name="ignoreHierarchy">true</param>  
+				<param name="root">message</param>
+				<param name="excludeProperties">userService</param>
+			</result>		        
+	    </global-results>
+	    <global-exception-mappings>
+	        <exception-mapping exception="edu.whut.web.exception.BaseException" result="error"/>
+	        <exception-mapping exception="java.lang.Exception" result="error"/>
+	    </global-exception-mappings>
+		<action name="login" class="loginAction">
+			<!-- 定义三个逻辑视图和物理资源之间的映射 -->		
+			<result name="input">/WEB-INF/content/loginPage.jsp</result>
+			<result name="error">/WEB-INF/content/loginPage.jsp</result>		
+		</action>
+		<action name="showAllUser" class="userAction" method="showAllUser">
+			<!-- 定义三个逻辑视图和物理资源之间的映射 -->		
+			<result name="input">/WEB-INF/content/loginPage.jsp</result>	
+			<result name="success">/WEB-INF/content/main.jsp</result>	
+			<interceptor-ref name="mydefault"/>	
+		</action>	
+		<action name="registerUser" class="userAction" method="registerUser">
+			<!-- 定义三个逻辑视图和物理资源之间的映射 -->		
+			<result name="input">/WEB-INF/content/register.jsp</result>	
+		</action>	
+		<action name="saveUsersExt" class="userExtAction" method="saveUsers">
+		</action>	
+		<action name="*User" class="userAction" method="{1}User">
+			<!-- 定义三个逻辑视图和物理资源之间的映射 -->		
+			<result name="input">/WEB-INF/content/user.jsp</result>	
+			<interceptor-ref name="mydefault"/>			
+		</action>	
+		<action name="*Org" class="organizationAction" method="{1}Organization">
+			<!-- 定义三个逻辑视图和物理资源之间的映射 -->		
+			<result name="input">/WEB-INF/content/organization.jsp</result>	
+			<interceptor-ref name="mydefault"/>		
+		</action>		
+		<action name="*Role" class="roleAction" method="{1}Role">
+			<!-- 定义三个逻辑视图和物理资源之间的映射 -->		
+			<result name="input">/WEB-INF/content/role.jsp</result>	
+			<interceptor-ref name="mydefault"/>		
+		</action>					
+		<action name="imgcode" class="edu.whut.web.action.RandomCodeAction">
+            <result type="stream">  
+               <param name="contentType">image/jpeg</param>  
+               <param name="inputName">inputStream</param>  
+            </result> 
+		</action>	
+		<action name="*">
+		    <result>/WEB-INF/content/{1}.jsp</result>
+		</action>	
+	</package>
+</struts>

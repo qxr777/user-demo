@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+    <import resource="classpath:bean.xml" />
+	<!-- 对应的struts action -->
+    <bean id="loginAction" class="edu.whut.web.action.LoginAction" scope="prototype">
+		<property name="userService">
+			<ref bean="userService"></ref>
+		</property>
+	</bean>
+	<bean id="organizationAction" class="edu.whut.web.action.OrganizationAction" scope="prototype">
+	    <property name="userService">
+	        <ref bean="userService"></ref>
+	    </property>
+	</bean>
+	<bean id="roleAction" class="edu.whut.web.action.RoleAction" scope="prototype">
+	    <property name="userService">
+	        <ref bean="userService"></ref>
+	    </property>
+	</bean>	
+	<bean id="userAction" class="edu.whut.web.action.UserAction" scope="prototype">
+	    <property name="userService">
+	        <ref bean="userService"></ref>
+	    </property>    
+	</bean>	
+	<bean id="userExtAction" class="edu.whut.web.action.UserExtAction" scope="prototype">
+	    <property name="userService">
+	        <ref bean="userService"></ref>
+	    </property>    
+	</bean>		
+</beans>
