@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+		<div>
+			<form method="post" action="LoginServlet" name="login">
+				<table>
+					<tr>
+						<td>
+							用户名：
+						</td>
+						<td>
+							<input type="text" name="name">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							密码：
+						</td>
+						<td>
+							<input type="password" name="password">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							验证码：
+						</td>
+						<td>
+							<input type="text" name="random" maxlength="4">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							描述：
+						</td>
+						<td>
+							<textarea name="description" cols=40 rows=10></textarea>
+						</td>
+					</tr>	
+					<tr>
+						<td>
+							子系统：
+						</td>
+						<td>
+							<input type="radio" name="subsystem" value="1">销售
+							<input type="radio" name="subsystem" value="2">财务
+							<input type="radio" name="subsystem" value="3">预订
+						</td>
+					</tr>	
+					<tr>
+						<td>
+							爱好：
+						</td>
+						<td>
+							<input type="checkbox" name="hobby_1" value="1">体育
+							<input type="checkbox" name=hobby_2 value="1">音乐
+							<input type="checkbox" name=hobby_3 value="1">文学
+							<input type="checkbox" name=hobby_4 value="1">其他
+						</td>
+					</tr>
+					<tr>
+						<td>
+							城市：
+						</td>
+					    <td>
+					       <select name="city" width="100">
+							<option value="beijing">北京</option>
+							<option value="shanghai">上海</option>
+							<option value="guangzhou">广州</option>
+							<option value="hk">香港</option>
+							<option value="jinan" selected>济南</option>
+							<option value="qingdao">青岛</option>
+					       </select>
+					    </td>
+				    </tr>
+					<tr>
+						<td>
+							图标按钮：
+						</td>
+						<td>
+							<input type="image" name="subsystem" src="http://www.btrip.cn/GiraImage/2012/5/93f57b77-ff88-43fd-90e9-7c00e1c147b3.gif">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							文件：
+						</td>
+						<td>
+							<input type="file" name="upload" size="15" maxlength="50" accept="text/html"> 
+						</td>
+					</tr>					
+					<input type="hidden" name="action" value="updateUser">					    																		
+					<tr>
+						<td>
+							<input type="submit" value="登录" name="submit">
+						</td>
+						<td>
+							<input type="reset" value="重置" name="reset">
+						</td>
+						<td>
+							<a href="register.jsp">注册用户</a>
+						</td>						
+					</tr>
+				</table>
+			</form>
+		</div>
+</body>
+</html>
