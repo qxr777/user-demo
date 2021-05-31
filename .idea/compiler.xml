@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="user-spring-hibernate" />
+        <module name="user-spring-jpa" />
+        <module name="servlet-demo" />
+        <module name="user-struts2" />
+        <module name="jsp-demo" />
+        <module name="user-ssh" />
+        <module name="user-hibernate" />
+        <module name="html-demo" />
+        <module name="user0" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="html-demo" target="1.7" />
+      <module name="jsp-demo" target="1.5" />
+      <module name="servlet-demo" target="1.5" />
+      <module name="user-hibernate" target="1.5" />
+      <module name="user-spring-hibernate" target="6" />
+      <module name="user-spring-jpa" target="1.8" />
+      <module name="user-ssh" target="1.5" />
+      <module name="user-struts2" target="1.5" />
+      <module name="user0" target="1.5" />
+      <module name="user1" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,10 @@
+# Project exclude paths
+/jsp-demo/target/
+/servlet-demo/target/
+/user0/target/
+/user1/target/
+/user-hibernate/target/
+/user-spring-hibernate/target/
+/user-spring-jpa/target/
+/user-ssh/target/
+/user-struts2/target/

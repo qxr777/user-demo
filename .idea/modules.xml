@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/docker/docker.iml" filepath="$PROJECT_DIR$/docker/docker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/html-demo/html-demo.iml" filepath="$PROJECT_DIR$/html-demo/html-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsp-demo/jsp-demo.iml" filepath="$PROJECT_DIR$/jsp-demo/jsp-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servlet-demo/servlet-demo.iml" filepath="$PROJECT_DIR$/servlet-demo/servlet-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-hibernate/user-hibernate.iml" filepath="$PROJECT_DIR$/user-hibernate/user-hibernate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-spring-hibernate/user-spring-hibernate.iml" filepath="$PROJECT_DIR$/user-spring-hibernate/user-spring-hibernate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-spring-jpa/user-spring-jpa.iml" filepath="$PROJECT_DIR$/user-spring-jpa/user-spring-jpa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-ssh/user-ssh.iml" filepath="$PROJECT_DIR$/user-ssh/user-ssh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-struts2/user-struts2.iml" filepath="$PROJECT_DIR$/user-struts2/user-struts2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user0/user0.iml" filepath="$PROJECT_DIR$/user0/user0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user1/user1.iml" filepath="$PROJECT_DIR$/user1/user1.iml" />
+    </modules>
+  </component>
+</project>
