@@ -14,7 +14,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <struts2.version>2.3.32</struts2.version>
-        <springframework.version>4.1.7.RELEASE</springframework.version>
+        <springframework.version>6.0.0</springframework.version>
     </properties>
 
     <dependencies>
